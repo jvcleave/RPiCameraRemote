@@ -9,8 +9,8 @@ void ofApp::setup(){
     
     ofSetLogLevel(OF_LOG_VERBOSE);
     
-    bridge.setup("http://jvcrpi.local:8998/modified.xml");
-    
+    //bridge.setup("http://jvcrpi.local:8998/modified.xml");
+    bridge.setup();
 }
 
 

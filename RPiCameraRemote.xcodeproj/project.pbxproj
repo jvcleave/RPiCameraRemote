@@ -22,6 +22,7 @@
 		0311C458182CBB3B00359E82 /* ofxOscParameterSync.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0311C447182CBB3B00359E82 /* ofxOscParameterSync.cpp */; };
 		0311C459182CBB3B00359E82 /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0311C449182CBB3B00359E82 /* ofxOscReceiver.cpp */; };
 		0311C45A182CBB3B00359E82 /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0311C44B182CBB3B00359E82 /* ofxOscSender.cpp */; };
+		032C9C1D183575F900685AAC /* TestBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032C9C1B183575F900685AAC /* TestBridge.cpp */; };
 		1cd33e884d9e3358252e82a1 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 907c5b5e104864a2d3a25745 /* ofxToggle.cpp */; };
 		483908258d00b98b4be69f07 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78d67a00eb899fac09430597 /* ofxLabel.cpp */; };
 		5cbb2ab3a60f65431d7b555d /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = c88333e71c9457e441c33474 /* ofxButton.cpp */; };
@@ -119,6 +120,8 @@
 		0311C44A182CBB3B00359E82 /* ofxOscReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOscReceiver.h; sourceTree = "<group>"; };
 		0311C44B182CBB3B00359E82 /* ofxOscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOscSender.cpp; sourceTree = "<group>"; };
 		0311C44C182CBB3B00359E82 /* ofxOscSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOscSender.h; sourceTree = "<group>"; };
+		032C9C1B183575F900685AAC /* TestBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestBridge.cpp; sourceTree = "<group>"; };
+		032C9C1C183575F900685AAC /* TestBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBridge.h; sourceTree = "<group>"; };
 		0a1dac09f322ae313a40706d /* ofxToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxToggle.h; path = ../../../addons/ofxGui/src/ofxToggle.h; sourceTree = SOURCE_ROOT; };
 		15f2c6477a769c03a56d1401 /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSlider.cpp; path = ../../../addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
 		17e65988300fbd9aaa2cd0ca /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGui.h; path = ../../../addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
@@ -380,6 +383,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				030D88F41831581F0012F767 /* RPiOSCBridge.cpp */,
 				030D88F51831581F0012F767 /* RPiOSCBridge.h */,
+				032C9C1B183575F900685AAC /* TestBridge.cpp */,
+				032C9C1C183575F900685AAC /* TestBridge.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -510,6 +515,7 @@
 				0311C44F182CBB3B00359E82 /* UdpSocket.cpp in Sources */,
 				0311C453182CBB3B00359E82 /* OscPrintReceivedElements.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				032C9C1D183575F900685AAC /* TestBridge.cpp in Sources */,
 				856aa354d08ab4b323081444 /* ofxBaseGui.cpp in Sources */,
 				0311C450182CBB3B00359E82 /* NetworkingUtilsWin.cpp in Sources */,
 				0311C452182CBB3B00359E82 /* OscOutboundPacketStream.cpp in Sources */,

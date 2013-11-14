@@ -1,7 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
-#include "RPiOSCBridge.h"
+//#include "RPiOSCBridge.h"
+#include "TestBridge.h"
 
 class ofApp : public ofBaseApp{
 	
@@ -25,7 +26,7 @@ public:
 
 
 	
-    RPiOSCBridge bridge;
+    TestBridge bridge;
     
 };
 
