@@ -52,7 +52,7 @@ ofParameterGroup* createParameterGroup(ofXml& xmlParser)
 
 RPiOSCBridge::RPiOSCBridge()
 {
-    localPort = 6667;
+    localPort = 7777;
     remotePort = 6666;
     serializer = NULL;
     sync = NULL;
@@ -103,6 +103,7 @@ void RPiOSCBridge::setup(string xmlPath)
                 string max = xmlParser.getAttribute("max");
                 intItem.set(childName, xmlParser.getIntValue(), ofToInt(min), ofToInt(max));
                 mainGroup.add(intItem);
+                intItems.push_back(&intItem);
             }
             
             if (nodeType == "float")
@@ -118,17 +119,34 @@ void RPiOSCBridge::setup(string xmlPath)
         
         xmlParser.setToParent();
     }
-    gui.setup("panel");
+    gui.setup("camera");
     
     gui.add(mainGroup);
     
-    string filename = ofToDataPath("myoutput.xml", true);
+    string filename = ofToDataPath("gui.xml", true);
     serializer = new ofXml();
-    serializer->serialize(mainGroup);
-    //serializer->save(filename);
-    sync = new ofxOscParameterSync();
     
-    sync->setup((ofParameterGroup&)gui.getParameter(), localPort, "jvcrpi.local", remotePort);
+    sync = new ofxOscParameterSync();
+    guiParamGroup = (ofParameterGroup*)&gui.getParameter();
+    
+   
+    ofParameterGroup * parent = guiParamGroup->getGroup("root").get("contrast").getParent();
+    
+    guiParamGroup->getGroup("root").get("contrast").setParent(guiParamGroup);
+    ofLogVerbose() << "guiParamGroup-> name: " << guiParamGroup->getName();
+    if (parent)
+    {
+        ofLogVerbose() << "myContrast parent is: " << parent->getName();
+        //myContrast.setParent(guiParamGroup);
+    }else{
+        ofLogVerbose() << "myContrast has no parent ";
+    }
+    
+    sync->setup(*guiParamGroup, localPort, "jvcrpi.local", remotePort);
+    serializer->serialize(*guiParamGroup);
+    serializer->save(filename);
+    
+    
     
 }
 

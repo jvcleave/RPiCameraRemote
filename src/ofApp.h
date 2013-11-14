@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGui.h"
 #include "RPiOSCBridge.h"
 
 class ofApp : public ofBaseApp{

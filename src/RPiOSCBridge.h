@@ -19,5 +19,7 @@ public:
     int remotePort;
     
     ofxPanel gui;
-
+    ofParameterGroup* guiParamGroup;
+    
+    vector<ofParameter<int>* > intItems;
 };
