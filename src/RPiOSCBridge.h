@@ -21,5 +21,9 @@ public:
     ofxPanel gui;
     ofParameterGroup* guiParamGroup;
     
-    vector<ofParameter<int>* > intItems;
+    //vector<ofParameter<int>* > intItems;
+    
+    void onMainGroupParameterGroupChanged(ofAbstractParameter & param);
+    void onGuiParameterGroupChanged(ofAbstractParameter & param);
+    
 };

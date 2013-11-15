@@ -1,11 +1,3 @@
-//
-//  RPiOSCBridge.cpp
-//  RPiCameraRemote
-//
-//  Created by jason van cleave on 11/11/13.
-//
-//
-
 #include "RPiOSCBridge.h"
 
 
@@ -57,6 +49,16 @@ RPiOSCBridge::RPiOSCBridge()
     serializer = NULL;
     sync = NULL;
 }
+void RPiOSCBridge::onMainGroupParameterGroupChanged(ofAbstractParameter & param)
+{
+	ofLogVerbose(__func__) << "param.getName: " << param.getName();
+	//sync->sender.sendParameter(param);
+}
+void RPiOSCBridge::onGuiParameterGroupChanged(ofAbstractParameter & param)
+{
+	ofLogVerbose(__func__) << "param.getName: " << param.getName();
+	//sync->sender.sendParameter(param);
+}
 
 void RPiOSCBridge::setup(string xmlPath)
 {
@@ -103,7 +105,6 @@ void RPiOSCBridge::setup(string xmlPath)
                 string max = xmlParser.getAttribute("max");
                 intItem.set(childName, xmlParser.getIntValue(), ofToInt(min), ofToInt(max));
                 mainGroup.add(intItem);
-                intItems.push_back(&intItem);
             }
             
             if (nodeType == "float")
@@ -127,24 +128,11 @@ void RPiOSCBridge::setup(string xmlPath)
     sync = new ofxOscParameterSync();
     guiParamGroup = (ofParameterGroup*)&gui.getParameter();
     
-   
-   /* ofParameterGroup * parent = guiParamGroup->getGroup("root").get("contrast").getParent();
-    
-    guiParamGroup->getGroup("root").get("contrast").setParent(guiParamGroup);
-    ofLogVerbose() << "guiParamGroup-> name: " << guiParamGroup->getName();
-    if (parent)
-    {
-        ofLogVerbose() << "myContrast parent is: " << parent->getName();
-        //myContrast.setParent(guiParamGroup);
-    }else{
-        ofLogVerbose() << "myContrast has no parent ";
-    }*/
-    
     sync->setup(*guiParamGroup, localPort, "jvcrpi.local", remotePort);
     serializer->serialize(*guiParamGroup);
     serializer->save(filename);
-    
-    
+    ofAddListener(mainGroup.parameterChangedE, this, &RPiOSCBridge::onMainGroupParameterGroupChanged);
+    ofAddListener(guiParamGroup->parameterChangedE, this, &RPiOSCBridge::onGuiParameterGroupChanged);
     
 }
 
