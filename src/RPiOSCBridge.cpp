@@ -119,9 +119,7 @@ void RPiOSCBridge::setup(string xmlPath)
         
         xmlParser.setToParent();
     }
-    gui.setup("camera");
-    
-    gui.add(mainGroup);
+    gui.setup(mainGroup);
     
     string filename = ofToDataPath("gui.xml", true);
     serializer = new ofXml();
@@ -130,7 +128,7 @@ void RPiOSCBridge::setup(string xmlPath)
     guiParamGroup = (ofParameterGroup*)&gui.getParameter();
     
    
-    ofParameterGroup * parent = guiParamGroup->getGroup("root").get("contrast").getParent();
+   /* ofParameterGroup * parent = guiParamGroup->getGroup("root").get("contrast").getParent();
     
     guiParamGroup->getGroup("root").get("contrast").setParent(guiParamGroup);
     ofLogVerbose() << "guiParamGroup-> name: " << guiParamGroup->getName();
@@ -140,7 +138,7 @@ void RPiOSCBridge::setup(string xmlPath)
         //myContrast.setParent(guiParamGroup);
     }else{
         ofLogVerbose() << "myContrast has no parent ";
-    }
+    }*/
     
     sync->setup(*guiParamGroup, localPort, "jvcrpi.local", remotePort);
     serializer->serialize(*guiParamGroup);
